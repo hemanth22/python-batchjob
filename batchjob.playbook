@@ -1,5 +1,5 @@
 ---
-- name: Ansible mail notification
+- name: python batch job automation
   hosts: localhost
   gather_facts: false
 
