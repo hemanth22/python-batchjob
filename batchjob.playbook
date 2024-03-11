@@ -1,1 +1,9 @@
 ---
+- name: Ansible mail notification
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Install specified python requirements
+      ansible.builtin.pip:
+        requirements: ./requirements.txt
