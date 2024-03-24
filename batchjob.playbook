@@ -13,4 +13,7 @@
       command: python -V
 
     - name: Executing batch job
-      command: python batchjob1.py
+      command: python batchjob1.py > batchjob1.txt
+
+    - name: Verify the saved output
+      ansible.builtin.shell: cat batchjob1.txt
