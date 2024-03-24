@@ -16,4 +16,4 @@
       command: python batchjob1.py > batchjob1.txt
 
     - name: Verify the saved output
-      ansible.builtin.shell: cat batchjob1.txt
+      command: cat batchjob1.txt
