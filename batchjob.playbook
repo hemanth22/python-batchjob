@@ -8,3 +8,9 @@
       ansible.builtin.pip:
         name:
           - requests
+
+    - name: Print Python Version
+      command: python -V
+
+    - name: Executing batch job
+      command: python batchjob1.py
