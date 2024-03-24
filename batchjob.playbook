@@ -16,4 +16,4 @@
       command: python batchjob1.py > batchjob1.txt
 
     - name: Verify the saved output
-      command: cat batchjob1.txt
+      command: find / -type f -iname batchjob1.txt
