@@ -1,4 +1,5 @@
 import requests
+import json
 
 url = "https://api.publicapis.org/entries"
 
