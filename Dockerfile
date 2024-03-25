@@ -6,6 +6,10 @@ RUN dnf install python39 -y && \
     python3.9 -m pip install --upgrade pip && \
     python3.9 -m pip install ansible
 
+# Install Ansible Galaxy collections
+RUN ansible-galaxy collection install community.general
+RUN ansible-galaxy collection install ansible.posix
+
 # Set environment variables
 ENV PATH="/root/.local/bin:${PATH}"
 ENV ANSIBLE_TMP="/root/.ansible/tmp"
