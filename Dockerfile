@@ -24,5 +24,7 @@ RUN mkdir -p $ANSIBLE_TMP && chown -R root:root $ANSIBLE_TMP && chmod -R 777 /ro
 # Copy all localhost files to the container
 COPY . /root/
 
+RUN chmod -R 777 /root/
+
 # Execute the Ansible playbook
 CMD ["ansible-playbook", "batchjob.playbook"]
