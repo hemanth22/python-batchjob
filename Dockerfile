@@ -12,5 +12,8 @@ RUN dnf install python39 -y && \
 # Copy all localhost files to the container
 COPY . .
 
+# Set environment variables
+ENV PATH="/root/.local/bin:${PATH}"
+
 # Execute the Ansible playbook
 CMD ["ansible-playbook", "-vvv", "ansible.playbook"]
