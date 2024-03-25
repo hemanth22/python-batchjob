@@ -5,7 +5,7 @@ FROM python:3.10
 RUN pip install ansible
 
 # Copy the Ansible playbook into the container
-COPY batchjob.playbook /playbooks/batchjob.playbook
+COPY . /playbooks/
 
 # Set the working directory
 WORKDIR /playbooks
