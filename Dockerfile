@@ -1,6 +1,10 @@
 # Use CentOS Stream 8 as base image
 FROM quay.io/centos/centos:stream8
 
+USER root
+
+WORKDIR /root
+
 # Install Python 3.9 and Ansible
 RUN dnf install python39 -y && \
     python3.9 -m pip install --upgrade pip && \
