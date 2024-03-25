@@ -12,14 +12,20 @@
     - name: Print Python Version
       command: python3 -V
 
-    - name: Create batchjob1.txt file with content
-      ansible.builtin.file:
-        path: batchjob1.txt
-        state: touch
-        mode: '777'
-
     - name: Executing batch job
       ansible.builtin.shell: python3 batchjob1.py > batchjob1.txt
+      args:
+        creates: batchjob1.txt
 
     - name: Verify the saved output
       ansible.builtin.shell: cat batchjob1.txt
+
+    - name: Transform the output to html
+      ansible.builtin.shell: cat batchjob1.txt | awk -f converter_html.awk > batchjob1.html
+      args:
+        creates: batchjob1.html
+
+    - name: Executing mail batch job
+      ansible.builtin.shell: python3 mail_batchjob1.py
+      args:
+        creates: report.zip
