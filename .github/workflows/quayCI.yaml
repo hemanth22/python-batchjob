@@ -1,9 +1,9 @@
 name: quay deployment
 on:
   push:
-    branches: [ feature/logger ]
+    branches: [ main ]
   pull_request:
-    branches: [ feature/logger ]
+    branches: [ main ]
 
 jobs:
   build:
