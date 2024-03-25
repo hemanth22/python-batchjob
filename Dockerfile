@@ -15,7 +15,7 @@ ENV PATH="/root/.local/bin:${PATH}"
 ENV ANSIBLE_TMP="/root/.ansible/tmp"
 
 # Create the Ansible temporary directory
-RUN mkdir -p $ANSIBLE_TMP && chown -R root:root $ANSIBLE_TMP && chmod -R 777 /root/.ansible/tmp
+RUN mkdir -p /root/.ansible && chown -R root:root /root/.ansible && chmod -R 777 /root/.ansible
 
 # Execute the Ansible playbook
 CMD ["ansible-playbook", "batchjob.playbook"]
