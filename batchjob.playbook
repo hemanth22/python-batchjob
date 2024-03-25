@@ -10,10 +10,16 @@
           - requests
 
     - name: Print Python Version
-      command: python -V
+      command: python3 -V
+
+    - name: Create batchjob1.txt file with content
+      ansible.builtin.file:
+        path: batchjob1.txt
+        state: touch
+        mode: '777'
 
     - name: Executing batch job
-      command: python batchjob1.py > batchjob1.txt
+      ansible.builtin.shell: python3 batchjob1.py > batchjob1.txt
 
     - name: Verify the saved output
-      command: cat batchjob1.txt
+      ansible.builtin.shell: cat batchjob1.txt
