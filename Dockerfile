@@ -7,10 +7,10 @@ WORKDIR /app
 # Install Python 3.9 and Ansible
 RUN sudo dnf install python39 -y && \
     python3.9 -m pip install --upgrade pip && \
-    python3.9 -m pip install ansible --user
+    python3.9 -m pip install ansible
 
 # Copy all localhost files to the container
 COPY . .
 
 # Execute the Ansible playbook
-CMD ["ansible-playbook", "-vvv", "/app/ansible.playbook"]
+CMD ["ansible-playbook", "-vvv", "ansible.playbook"]
