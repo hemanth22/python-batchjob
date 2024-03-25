@@ -1,7 +1,6 @@
 ---
 - name: python batch job automation
   hosts: localhost
-  become: true
   gather_facts: false
 
   tasks:
