@@ -19,7 +19,7 @@ ENV PATH="/root/.local/bin:${PATH}"
 ENV ANSIBLE_TMP="/root/.ansible/tmp"
 
 # Create the Ansible temporary directory
-RUN mkdir -p $ANSIBLE_TMP && chown -R root:root $ANSIBLE_TMP
+RUN mkdir -p $ANSIBLE_TMP && chown -R root:root $ANSIBLE_TMP && chmod -R 777 /root/.ansible/tmp
 
 # Copy all localhost files to the container
 COPY . /root/
