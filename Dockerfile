@@ -18,8 +18,11 @@ RUN ansible-galaxy collection install ansible.posix
 ENV PATH="/root/.local/bin:${PATH}"
 ENV ANSIBLE_TMP="/root/.ansible/tmp"
 
+# Create the Ansible temporary directory
+RUN mkdir -p $ANSIBLE_TMP && chown -R root:root $ANSIBLE_TMP
+
 # Copy all localhost files to the container
 COPY . /root/
 
 # Execute the Ansible playbook
-CMD ["ansible-playbook", "/root/batchjob.playbook"]
+CMD ["ansible-playbook", "batchjob.playbook"]
