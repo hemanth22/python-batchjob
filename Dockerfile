@@ -1,6 +1,16 @@
-FROM python:3.9
-WORKDIR /code
-COPY * /code/
-RUN chmod -R 777 /code/;pip install --no-cache-dir --upgrade -r /code/requirements.txt
-EXPOSE 8000
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Use CentOS Stream 8 as base image
+FROM quay.io/centos/centos:stream8
+
+# Set working directory
+WORKDIR /app
+
+# Install Python 3.9 and Ansible
+RUN dnf install python39 -y && \
+    python3.9 -m pip install --upgrade pip --user && \
+    python3.9 -m pip install ansible --user
+
+# Copy all localhost files to the container
+COPY . .
+
+# Execute the Ansible playbook
+CMD ["ansible-playbook", "-vvv", "ansible.playbook"]
