@@ -1,10 +1,21 @@
 ---
 - name: python batch job automation
   hosts: localhost
-  become: true
   gather_facts: false
-
+  become: true
+  vars:
+    os_environment:
+      - key: EDITOR
+        value: vi
   tasks:
+    - name: customize /etc/environment
+      ansible.builtin.lineinline:
+        dest: "/etc/environment"
+        state: present
+        regexp: "^{{ item.key }}="
+        line: "{{ item.key }}={{ item.value }}"
+      with_items: "{{ os_environment }}"
+
     - name: Install specified python requirements
       ansible.builtin.pip:
         name:
