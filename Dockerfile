@@ -16,4 +16,4 @@ ENV PATH=$HOME/.local/bin/:$PATH PYTHONUNBUFFERED=1 PYTHONIOENCODING=UTF-8 LC_AL
 COPY . .
 
 # Execute the Ansible playbook
-CMD ["/root/.local/bin/ansible-playbook", "-vvv", "ansible.playbook"]
+CMD ["/root/.local/bin/ansible-playbook", "-vvv", "/app/ansible.playbook"]
