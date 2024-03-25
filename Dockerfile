@@ -10,7 +10,7 @@ RUN dnf install python39 -y && \
     python3.9 -m pip install ansible --user
 
 # Add Ansible binary directory to PATH
-ENV PATH="/root/.local/bin:${PATH}"
+ENV PATH=$HOME/.local/bin/:$PATH PYTHONUNBUFFERED=1 PYTHONIOENCODING=UTF-8 LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 PIP_NO_CACHE_DIR=off
 
 # Copy all localhost files to the container
 COPY . .
