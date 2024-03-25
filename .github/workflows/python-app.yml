@@ -29,3 +29,7 @@ jobs:
         pip install flake8 pytest ansible
     - name: Executing ansible playbook
       run: ansible-playbook -vvv batchjob.playbook
+      env:
+        API_KEY_HELPER: ${{ secrets.API_KEY_HELPER }}
+        SMTP_URL_FINAL: ${{ secrets.SMTP_URL_FINAL }}
+        SMTP_PORT: ${{ secrets.SMTP_PORT }}
