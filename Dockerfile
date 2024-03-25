@@ -28,4 +28,4 @@ ENV PATH="/home/myuser/.local/bin:${PATH}"
 COPY . .
 
 # Execute the Ansible playbook
-CMD ["/root/.local/bin/ansible-playbook", "-vvv", "/app/ansible.playbook"]
+CMD ["/home/myuser/.local/bin/ansible-playbook", "-vvv", "/app/ansible.playbook"]
