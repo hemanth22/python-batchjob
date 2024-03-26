@@ -16,7 +16,7 @@ def create_zip(files, zip_name):
         for file in files:
             zip_file.write(file)
 
-reporthtml = subprocess.getoutput("/tmp/batchjob1.html")
+reporthtml = subprocess.getoutput("batchjob1.html")
 
 sender_email = "hemanth22hemu@gmail.com"
 
@@ -42,8 +42,8 @@ part2 = MIMEText(html, "html")
 message.attach(part1)
 message.attach(part2)
 
-files_to_attached = ["/tmp/batchjob1.html"]
-zip_filename = "/tmp/report.zip"
+files_to_attached = ["batchjob1.html"]
+zip_filename = "report.zip"
 create_zip(files_to_attached, zip_filename)
 
     # Attach the zip file
