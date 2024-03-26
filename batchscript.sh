@@ -7,6 +7,9 @@ touch /tmp/batchjob1.txt
 chmod 755 /tmp/batchjob1.txt
 touch /tmp/batchjob1.html
 chmod 755 /tmp/batchjob1.html
+echo "[TASK 2.1] Configure python and python3"
+alternatives --set python3 /usr/bin/python3.9
+alternatives --set python /usr/bin/python3.9
 echo "[TASK 3] Executing Batch Jobs"
 python3 batchjob1.py > /tmp/batchjob1.txt
 echo "[TASK 4] Transform output to html format"
