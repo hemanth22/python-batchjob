@@ -1,5 +1,5 @@
 # Use CentOS Stream 8 as base image
-FROM quay.io/centos/centos:stream8
+FROM quay.io/rockylinux/rockylinux:8
 
 USER root
 
