@@ -11,5 +11,13 @@ cp -v batchscript.sh /tmp
 cp -v mail_batchjob1.py /tmp
 cp -v Dockerfile /tmp
 echo "[TASK 2] Print Python3 Verions"
+python3 -V
+echo "[TASK 3] Executing Batch Jobs"
 cd /tmp/
-ansible-playbook batchjob.playbook
+python3 batchjob1.py > batchjob1.txt
+echo "[TASK 4] Transform output to html format"
+cd /tmp/
+cat batchjob1.txt | awk -f converter_html.awk > batchjob1.html
+echo "[TASK 5] Mail the output"
+cd /tmp/
+python3 mail_batchjob1.py

@@ -15,6 +15,7 @@
     - name: Executing batch job
       ansible.builtin.shell: python3 batchjob1.py > batchjob1.txt
       args:
+        chdir: /tmp/
         creates: batchjob1.txt
 
     - name: Verify the saved output
@@ -23,9 +24,11 @@
     - name: Transform the output to html
       ansible.builtin.shell: cat batchjob1.txt | awk -f converter_html.awk > batchjob1.html
       args:
+        chdir: /tmp/
         creates: batchjob1.html
 
     - name: Executing mail batch job
       ansible.builtin.shell: python3 mail_batchjob1.py
       args:
+        chdir: /tmp/
         creates: report.zip
