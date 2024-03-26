@@ -16,7 +16,7 @@ def create_zip(files, zip_name):
         for file in files:
             zip_file.write(file)
 
-reporthtml = subprocess.getoutput("batchjob1.html")
+reporthtml = subprocess.getoutput("cat batchjob1.html")
 
 sender_email = "hemanth22hemu@gmail.com"
 
