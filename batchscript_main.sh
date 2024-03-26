@@ -7,7 +7,7 @@ cp -v converter_html.awk /tmp
 cp -v batchjob.playbook /tmp
 cp -v batchjob1.py /tmp
 cp -v ansible.cfg /tmp
-cp -v batchscript.sh /tmp
+cp -v batchscript_main.sh /tmp
 cp -v mail_batchjob1.py /tmp
 cp -v Dockerfile /tmp
 echo "[TASK 2] Print Python3 Verions"
