@@ -9,7 +9,7 @@ WORKDIR /root
 COPY . /root/
 
 # Install Python 3.9 and Ansible
-RUN dnf install sudo python39 -y && python3.9 -m pip install --upgrade pip
+RUN dnf install sudo python39 -y && python3.9 -m pip install --upgrade pip && alternatives --set python3 /usr/bin/python3.9 && alternatives --set python /usr/bin/python3.9
 
 # Execute the Ansible playbook
 CMD ["bash", "batchscript.sh"]
