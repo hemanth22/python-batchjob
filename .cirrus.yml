@@ -1,0 +1,21 @@
+# .cirrus.yml
+
+docker:
+  - image: docker:stable
+
+steps:
+  - checkout
+
+  # Build Docker image
+  - run: docker build -t python-batchjob:job .
+
+  # Authenticate with Docker registry and pull images (if necessary)
+  # Add steps here if needed
+
+  # Install Trivy
+  - run: apk --no-cache add curl && curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
+
+  # Scan Docker image for vulnerabilities
+  - run: trivy --severity HIGH,CRITICAL python-batchjob:job
+
+  # Optionally, you can include steps to fail the pipeline or generate reports based on the scan results
